@@ -1,8 +1,8 @@
 # Slackbot
 This is a demonstration using [Amazon EC2](https://docs.aws.amazon.com/pt_br/AWSEC2/latest/UserGuide/concepts.html) and Slack API for python (slackclient) to create a slackbot that works like a proxy for questions and answers between channels in a slack workspace
 
-## Prerequisites:
-- EC2 Instance
+## Requisites:
+- Linux EC2 Instance
 - Either Python 2 or 3 installed
 - pip installed to manage dependencies 
 - Slack client installed 
@@ -18,7 +18,7 @@ Some AMIs already have Python 2 installed, to check if you already have it run:
 ```
 python --version
 ```
-If you don´t have it installed yet run: 
+If you don´t have python installed yet run: 
 ```
 sudo yum install python 
 ```
@@ -26,3 +26,12 @@ sudo yum install python
 ```
 sudo yum install pip
 ```
+### Install Slack Client 
+```
+pip install slackclient
+```
+### Create a Slack Bot 
+Inside your Slack Workspace go to **More>Apps** and search for "bots" and click on Add. You will be redirected to another page, then click on Add to Slack, give it a username, accept and configure it as you want (picture, description, etc) 
+After you do that, you´ll get an **API token for your bot**, save that information! 
+### Add your Bot to Slack Channels
+Bots need to be added to channels to have access to it. Go to the channel you want then go to **Information>More>Add Apps** , choose the bot you´ve just crated and done! (Repeat this step in every channel you want your bot to interact with)
