@@ -10,7 +10,7 @@ This is a demonstration using [Amazon EC2](https://docs.aws.amazon.com/pt_br/AWS
 
 ## Step-by-step
 ### Launch and connect to your EC2 Instance
-first thing you need to do is to Launch your EC2 instance in your AWS management console or via AWS CLI (I used an t2.micro Amazon Linux 2) and then connect to it. (IMPORTANT: Make sure your EC2 instance security group is open on port 22 (ssh) to your ip)
+first thing you need to do is to Launch your EC2 instance in your AWS management console or via AWS CLI (I used an t2.micro Amazon Linux 2) and then connect to it. (**IMPORTANT: Make sure your EC2 instance security group is open on port 22 (ssh) to your ip**)
 - [Launch your EC2 instance](https://docs.aws.amazon.com/quickstarts/latest/vmlaunch/step-1-launch-instance.html) 
 - [Connect to your EC2 instance](https://docs.aws.amazon.com/quickstarts/latest/vmlaunch/step-2-connect-to-instance.html)
 ### Install Python 
@@ -35,3 +35,14 @@ Inside your Slack Workspace go to **More>Apps** and search for "bots" and click 
 After you do that, you´ll get an **API token for your bot**, save that information! 
 ### Add your Bot to Slack Channels
 Bots need to be added to channels to have access to it. Go to the channel you want then go to **Information>More>Add Apps** , choose the bot you´ve just crated and done! (Repeat this step in every channel you want your bot to interact with)
+### Code the bot!
+You can now add functions to your bot, use the [Slack Client API reference](https://pypi.org/project/slackclient/1.0.7/) to see some basic usage. I already have one bot ready for you in the slackbot.py file in this repository! Fell free to clone this repository and use the code to test it in your Workspace. The basic function of this bot is to work as a proxy for questions and answers between channels in a slack workspace. **If you choose to use the slackbot.py file make sure to change the API token and the channels Ids inside the code** 
+### Run 
+To run your slackbot in your EC2 instance use:
+```
+python slackbot.py
+```
+If everything is working you should get this output and be able to test it in your workspace already!
+```
+Starter Bot connected and running!
+```
