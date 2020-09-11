@@ -35,13 +35,19 @@ After you do that, you´ll get an **API token for your bot**, save that informat
 ### Add your Bot to Slack Channels
 Bots need to be added to channels to have access to it. Go to the channel you want then go to **Information>More>Add Apps** , choose the bot you´ve just crated and done! (Repeat this step in every channel you want your bot to interact with)
 ### Code the bot!
-You can now add functions to your bot, use the [Slack Client API reference](https://pypi.org/project/slackclient/1.0.7/) to see some basic usage. I already have one bot ready for you in the slackbot.py file in this repository! Fell free to clone this repository and use the code to test it in your Workspace. The basic function of this bot is to work as a proxy for questions and answers between channels in a slack workspace. **If you choose to use the slackbot.py file make sure to change the API token and the channels Ids inside the code** 
+You can now add functions to your bot, use the [Slack Client API reference](https://pypi.org/project/slackclient/1.0.7/) to see some basic usage. I already have one bot ready for you in the code directory slackbot-en.py file in this repository! Fell free to clone this repository and use the code to test it in your Workspace. The basic function of this bot is to work as a proxy for questions and answers between channels in a slack workspace. **If you choose to use the slackbot.py file make sure to change the API token and the channels Ids inside the code** 
 ### Run 
 To run your slackbot in your EC2 instance use:
 ```
-python slackbot.py
+python slackbot-en.py
 ```
 If everything is working you should get this output and be able to test it in your workspace already!
 ```
 Starter Bot connected and running!
 ```
+
+## Slackbot Chat Flow
+
+User send the question:
+![Imagem 1](/images/img01.PNG?raw=true "Title")
+
