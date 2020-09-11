@@ -65,7 +65,7 @@ def handle_command(command, channel):
     if channel == "channel0 id":
         answer = "Not sure what you mean. Try *{}* or *{}*.".format(EXAMPLE_COMMAND2,EXAMPLE_COMMAND3)
         if command.startswith(EXAMPLE_COMMAND2):
-            answer = "Waiting for your answer (use {} to respond), Thank you!".format(EXAMPLE_COMMAND3)
+            answer = "Waiting for your answer (use {} to respond), Thank you!".format(EXAMPLE_COMMAND4)
         if command.startswith(EXAMPLE_COMMAND3):
             answer = "Sending question to next channel..."
             slack_client.api_call(
