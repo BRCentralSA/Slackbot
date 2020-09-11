@@ -4,14 +4,14 @@ from slackclient import SlackClient
 
 
 # instantiate Slack client
-slack_client = SlackClient('Aqui vai o token criado..')
+slack_client = SlackClient('your bot token goes here')
 
 # constants
 RTM_READ_DELAY = 1 # 1 second delay between reading from RTM
-EXAMPLE_COMMAND = "pergunta:"
-EXAMPLE_COMMAND2 = "SIM"
-EXAMPLE_COMMAND3 = "NAO"
-EXAMPLE_COMMAND4 = "resposta:"
+EXAMPLE_COMMAND = "Question:"
+EXAMPLE_COMMAND2 = "yes"
+EXAMPLE_COMMAND3 = "no"
+EXAMPLE_COMMAND4 = "answer:"
 MENTION_REGEX = "^<@(|[WU].+?)>(.*)"
 
 
@@ -39,73 +39,73 @@ def parse_direct_mention(message_text):
     # the first group contains the username, the second group contains the remaining message
     return (matches.group(1), matches.group(2).strip()) if matches else (None, None)
 
-def definir_pergunta(command):
-    global pergunta 
-    pergunta = command
+def define_question(command):
+    global question 
+    question = command
 
 def handle_command(command, channel):
         
     """
         Executes bot command if the command is known
     """
-    if channel == "C01AEDJQUUR":
-        resposta = "Not sure what you mean. Try *{}*".format(EXAMPLE_COMMAND)
+    if channel == "Questions channel id":
+        answer = "Not sure what you mean. Try *{}*".format(EXAMPLE_COMMAND)
         if command.startswith(EXAMPLE_COMMAND):
-            resposta = "Enviando sua pergunta para especialistas!"
-            definir_pergunta(command)
+            answer = "Sending your question to specialists!"
+            define_question(command)
             slack_client.api_call(
             "chat.postMessage",
             channel="#canal0",
-            text="Chegou uma {} Sabem responder? (diga SIM ou NAO)".format(command)
+            text="New {} do you know how to answer it? (Say yes or no)".format(command)
             )
         if command.startswith(EXAMPLE_COMMAND2):
-            resposta = "Obrigada pelo feedback :heart:"
+            answer = "Thanks for the feedback :heart:"
         if command.startswith(EXAMPLE_COMMAND3):
-            resposta = "Crie uma nova pergunta"
-    if channel == "C01AU9N2R0Q":
-        resposta = "Not sure what you mean. Try *{}*.".format(EXAMPLE_COMMAND2)
+            answer = "Sorry for that , fell free to send me another question!"
+    if channel == "channel0 id":
+        answer = "Not sure what you mean. Try *{}* or *{}*.".format(EXAMPLE_COMMAND2,EXAMPLE_COMMAND3)
         if command.startswith(EXAMPLE_COMMAND2):
-            resposta = "Aguardo a sua resposta (use *resposta:* para responder), Obrigada!"
+            answer = "Waiting for your answer (use {} to respond), Thank you!".format(EXAMPLE_COMMAND3)
         if command.startswith(EXAMPLE_COMMAND3):
-            resposta = "Enviando pergunta para o proximo canal..."
+            answer = "Sending question to next channel..."
             slack_client.api_call(
             "chat.postMessage",
             channel="#canal1",
-            text="Chegou uma {} Sabem responder? (diga SIM ou NAO)".format(pergunta)
+            text="New {} do you know how to answer it? (Say yes or no)".format(question)
             )
-            #enviar para o proximo canal
+            #send to next channel
         if command.startswith(EXAMPLE_COMMAND4):
-            resposta = "Enviando sua Resposta, Obrigada! :heart: "
+            answer = "Sending your answer for the requester, Thank you! :heart: "
             slack_client.api_call(
             "chat.postMessage",
             channel="#python-bot",
-            text="{} resposta satisfatoria? (diga *SIM* ou *NAO*)".format(command)
+            text="{} is this answer satisfactory? (say *yes* ou *no*)".format(command)
             )
-    if channel == "C01AUKKK6JC":
-        resposta = "Not sure what you mean. Try *{}*.".format(EXAMPLE_COMMAND2)
+    if channel == "channel1 id":
+        answer = "Not sure what you mean. Try *{}* or *{}*.".format(EXAMPLE_COMMAND2,EXAMPLE_COMMAND3)
         if command.startswith(EXAMPLE_COMMAND2):
-            resposta = "Aguardo a sua resposta (use *resposta:* para responder), Obrigada!"
+            answer = "Waiting for your answer (use {} to respond), Thank you!".format(EXAMPLE_COMMAND4)
         if command.startswith(EXAMPLE_COMMAND3):
-            resposta = "Enviando pergunta para o proximo canal..."
+            answer = "Sending question to next channel..."
             slack_client.api_call(
             "chat.postMessage",
             channel="#canal2",
-            text="Chegou uma {} Sabem responder? (diga SIM ou NAO)".format(pergunta)
+            text="New {} do you know how to answer it? (Say yes or no)".format(question)
             )
         if command.startswith(EXAMPLE_COMMAND4):
-            resposta = "Enviando sua Resposta, Obrigada! :heart: "
+            answer = "Sending your answer for the requester, Thank you! :heart: "
             slack_client.api_call(
             "chat.postMessage",
             channel="#python-bot",
-            text="{} resposta satisfatoria? (diga *SIM* ou *NAO*)".format(command)
+            text="{} is this answer satisfactory? (say *yes* ou *no*)".format(command)
             )
     
 
-    # Sends the resposta back to the channel
+    # Sends the answer back to the channel
     slack_client.api_call(
         "chat.postMessage",
         channel=channel,
-        text=resposta
+        text=answer
     )
 
 if __name__ == "__main__":
