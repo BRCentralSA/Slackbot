@@ -55,5 +55,5 @@ User send the question:
 <br>Bots sends the question to channel #1 and user respond:
 <br>![Imagem 3](/images/img03.PNG?raw=true "Title")
 <br>Bot sends the answer to requester:
-<br>![Imagem 2](/images/img02.PNG?raw=true "Title")
+<br>![Imagem 4](/images/img04.PNG?raw=true "Title")
 
