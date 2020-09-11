@@ -4,7 +4,7 @@ from slackclient import SlackClient
 
 
 # instantiate Slack client
-slack_client = SlackClient('xoxb-1333525267573-1354942281729-BByKl5BHplc1X3mtF2oINowt')
+slack_client = SlackClient('xoxb-1333525267573-1354942281729-VBoVY1SNUEoJ3BZaUD8NVkaC')
 
 # constants
 RTM_READ_DELAY = 1 # 1 second delay between reading from RTM
