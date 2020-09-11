@@ -49,5 +49,11 @@ Starter Bot connected and running!
 ## Slackbot Chat Flow
 
 User send the question:
-![Imagem 1](/images/img01.PNG?raw=true "Title")
+<br>![Imagem 1](/images/img01.PNG?raw=true "Title")
+<br>Bot sends the question to channel #0 and user choose to respond or not:
+<br>![Imagem 2](/images/img02.PNG?raw=true "Title")
+<br>Bots sends the question to channel #1 and user respond:
+<br>![Imagem 3](/images/img03.PNG?raw=true "Title")
+<br>Bot sends the answer to requester:
+<br>![Imagem 2](/images/img02.PNG?raw=true "Title")
 
